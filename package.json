@@ -1,0 +1,35 @@
+{
+  "name": "marcao-wer",
+  "version": "1.0.0",
+  "description": "Generic word-error-rate evaluation package",
+  "main": "lib/index.js",
+  "dependencies": {
+    "diff": "^5.0.0",
+    "ow": "^0.17.0",
+    "unzipper": "^0.10.11",
+    "word-error-rate": "^0.0.7"
+  },
+  "devDependencies": {
+    "codecov": "^3.8.1",
+    "eslint": "^7.17.0",
+    "jest": "^26.6.3"
+  },
+  "scripts": {
+    "test": "jest --collectCoverage",
+    "lint": "eslint"
+  },
+  "keywords": [
+    "Word error rate",
+    "Word error",
+    "Evaluation",
+    "Speech recognition",
+    "Speech to text",
+    "Speech-to-text"
+  ],
+  "author": "macardoso95@gmail.com",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MarcoABCardoso/marcao-wer"
+  }
+}
