@@ -28,12 +28,47 @@ npm install marcao-wer
 const Experiment = require('marcao-wer')
 
 const experiment = new Experiment({
-    audioFile: './audios.zip'                     // Path to a zip file containing audios to be recognized
-    groundTruthFile: './transcriptions.txt'       // Path to a txt file containing one transcription per line, in the same order as the audios
-    recognize: (audioFilePath) => Promise<string> // Function that sends input to a service, resolves transcription
+    filePath: './transcripts.csv'                 // Path to a csv file with columns [audioFilePath, transcript]
+    recognize: (audioFilePath) => Promise<string> // Function that sends input to a service, resolves transcript
 })
 let results = await experiment.run()
 ```
+
+## Sample results
+
+```json
+{
+    "total_words": 11,
+    "word_error_rate": 0.90909091,
+    "sentence_error_rate": 0.5,
+    "transcriptions": [
+        {
+            "file": "some_dir/audio_1.mp3",
+            "text": "How to change my password",
+            "prediction": "How to change my password",
+            "word_error_rate": 0,
+            "changes": []
+        },
+        {
+            "file": "some_dir/audio_2.mp3",
+            "text": "How do I change my password",
+            "prediction": "How I change my password",
+            "word_error_rate": 0.16666666666666666,
+            "changes": [
+                {
+                    "type": "deletion",
+                    "phrase": "do"
+                }
+            ]
+        }
+    ]
+}
+```
+Supported change types are currently:
+- addition
+- deletion
+- substitution
+
 
 ## Run tests
 

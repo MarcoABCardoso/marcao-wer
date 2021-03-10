@@ -16,21 +16,20 @@
 }
 
 interface ExperimentOptions {
-    audioFile: string
-    groundTruthFile: string
+    filePath: string
     recognize: (audioFilePath: string) => Promise<string>
-    tempDir?: string
     verbose?: boolean
     batchSize?: number
 }
 
 interface Change {
     type: string
-    word: string
-    with: string
+    phrase: string
+    with?: string
 }
 
 interface Transcription {
+    file: string
     text: string
     prediction: string
     word_error_rate: number

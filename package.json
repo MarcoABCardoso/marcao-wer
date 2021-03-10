@@ -1,16 +1,15 @@
 {
   "name": "marcao-wer",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Generic word-error-rate evaluation package",
   "main": "lib/index.js",
   "dependencies": {
+    "csvtojson": "^2.0.10",
     "diff": "^5.0.0",
     "ow": "^0.17.0",
-    "unzipper": "^0.10.11",
     "word-error-rate": "^0.0.7"
   },
   "devDependencies": {
-    "codecov": "^3.8.1",
     "eslint": "^7.17.0",
     "jest": "^26.6.3"
   },

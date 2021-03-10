@@ -5,8 +5,7 @@ let experimentOptions
 
 beforeEach(() => {
     experimentOptions = {
-        audioFile: './test/_audioFile.zip',
-        groundTruthFile: './test/_groundTruthFile.txt',
+        filePath: './test/_groundTruthFile.csv',
         recognize: jest.fn(() => Promise.resolve('Como trocar senha do banco')),
         batchSize: 2
     }
@@ -18,10 +17,6 @@ describe('Experiment', () => {
             let experiment = new Experiment(experimentOptions)
             expect(experiment).toBeInstanceOf(Experiment)
         })
-        it('Sets this.log when verbose is enabled', () => {
-            let experiment = new Experiment({ ...experimentOptions, verbose: true })
-            expect(experiment.log).toEqual(console.log)
-        })
     })
 
     describe('#runExperiment', () => {
@@ -31,18 +26,14 @@ describe('Experiment', () => {
                 .then(results => {
                     expect(results).toEqual(sampleResults)
                     expect(experiment.recognize).toHaveBeenCalledTimes(5)
+                    expect(experiment.recognize).toHaveBeenCalledWith('_audioFile/audio_1.mp3', 0, ['_audioFile/audio_1.mp3', '_audioFile/audio_2.mp3'])
+                    expect(experiment.recognize).toHaveBeenCalledWith('_audioFile/audio_2.mp3', 1, ['_audioFile/audio_1.mp3', '_audioFile/audio_2.mp3'])
+                    expect(experiment.recognize).toHaveBeenCalledWith('_audioFile/audio_3.mp3', 0, ['_audioFile/audio_3.mp3', '_audioFile/audio_4.mp3'])
+                    expect(experiment.recognize).toHaveBeenCalledWith('_audioFile/audio_4.mp3', 1, ['_audioFile/audio_3.mp3', '_audioFile/audio_4.mp3'])
+                    expect(experiment.recognize).toHaveBeenCalledWith('_audioFile/audio_5.mp3', 0, ['_audioFile/audio_5.mp3'])
                     done()
                 })
                 .catch(err => done.fail(err))
-        })
-        it('Fails when number of audios does not match number of transcriptions', (done) => {
-            let experiment = new Experiment({...experimentOptions, groundTruthFile: './test/_badGroundTruthFile.txt'})
-            experiment.run()
-                .then(err => done.fail(err))
-                .catch(err => {
-                    expect(err.message).toEqual('Length mismatch between groundTruth and audio')
-                    done()
-                })
         })
     })
 })
