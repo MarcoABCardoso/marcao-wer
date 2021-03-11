@@ -4,21 +4,18 @@
  */
 
  declare class Experiment {
-    /**
-     * Construct an Experiment object.
-     * @constructor
-     */
     constructor(options: ExperimentOptions)
-    /**
-     * Execute experiment
-     */
     run(): Promise<ExperimentResults>
 }
 
+interface Transcription {
+    audio: string
+    transcript: string
+}
+
 interface ExperimentOptions {
-    filePath: string
+    groundTruth: Transcription[]
     recognize: (audioFilePath: string) => Promise<string>
-    verbose?: boolean
     batchSize?: number
 }
 
@@ -28,8 +25,8 @@ interface Change {
     with?: string
 }
 
-interface Transcription {
-    file: string
+interface TranscriptionResult {
+    audio: string
     text: string
     prediction: string
     word_error_rate: number
@@ -40,7 +37,7 @@ interface ExperimentResults {
     total_words: number
     word_error_rate: number
     sentence_error_rate: number
-    transcriptions: Transcription[]
+    transcriptions: TranscriptionResult[]
 }
 
 export = Experiment

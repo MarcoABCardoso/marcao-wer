@@ -5,7 +5,7 @@ let experimentOptions
 
 beforeEach(() => {
     experimentOptions = {
-        filePath: './test/_groundTruthFile.csv',
+        groundTruth: require('./ground_truth.json'),
         recognize: jest.fn(() => Promise.resolve('Como trocar senha do banco')),
         batchSize: 2
     }
@@ -20,17 +20,17 @@ describe('Experiment', () => {
     })
 
     describe('#runExperiment', () => {
-        it('Executes WER experiment using provided files', (done) => {
+        it('Executes WER experiment using provided ground truth', (done) => {
             let experiment = new Experiment(experimentOptions)
             experiment.run()
                 .then(results => {
                     expect(results).toEqual(sampleResults)
                     expect(experiment.recognize).toHaveBeenCalledTimes(5)
-                    expect(experiment.recognize).toHaveBeenCalledWith('_audioFile/audio_1.mp3', 0, ['_audioFile/audio_1.mp3', '_audioFile/audio_2.mp3'])
-                    expect(experiment.recognize).toHaveBeenCalledWith('_audioFile/audio_2.mp3', 1, ['_audioFile/audio_1.mp3', '_audioFile/audio_2.mp3'])
-                    expect(experiment.recognize).toHaveBeenCalledWith('_audioFile/audio_3.mp3', 0, ['_audioFile/audio_3.mp3', '_audioFile/audio_4.mp3'])
-                    expect(experiment.recognize).toHaveBeenCalledWith('_audioFile/audio_4.mp3', 1, ['_audioFile/audio_3.mp3', '_audioFile/audio_4.mp3'])
-                    expect(experiment.recognize).toHaveBeenCalledWith('_audioFile/audio_5.mp3', 0, ['_audioFile/audio_5.mp3'])
+                    expect(experiment.recognize).toHaveBeenCalledWith('test_audio/audio_1.mp3', 0, ['test_audio/audio_1.mp3', 'test_audio/audio_2.mp3'])
+                    expect(experiment.recognize).toHaveBeenCalledWith('test_audio/audio_2.mp3', 1, ['test_audio/audio_1.mp3', 'test_audio/audio_2.mp3'])
+                    expect(experiment.recognize).toHaveBeenCalledWith('test_audio/audio_3.mp3', 0, ['test_audio/audio_3.mp3', 'test_audio/audio_4.mp3'])
+                    expect(experiment.recognize).toHaveBeenCalledWith('test_audio/audio_4.mp3', 1, ['test_audio/audio_3.mp3', 'test_audio/audio_4.mp3'])
+                    expect(experiment.recognize).toHaveBeenCalledWith('test_audio/audio_5.mp3', 0, ['test_audio/audio_5.mp3'])
                     done()
                 })
                 .catch(err => done.fail(err))

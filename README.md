@@ -28,8 +28,8 @@ npm install marcao-wer
 const Experiment = require('marcao-wer')
 
 const experiment = new Experiment({
-    filePath: './transcripts.csv'                 // Path to a csv file with columns [audioFilePath, transcript]
-    recognize: (audioFilePath) => Promise<string> // Function that sends input to a service, resolves transcript
+    groundTruth: []                             // Array of { audio: "audio_id", transcript: "Text said in this audio" }
+    recognize: (audio_id) => Promise<string>    // Function that sends audio to a service, resolves transcript
 })
 let results = await experiment.run()
 ```
@@ -43,14 +43,14 @@ let results = await experiment.run()
     "sentence_error_rate": 0.5,
     "transcriptions": [
         {
-            "file": "some_dir/audio_1.mp3",
+            "audio": "some_dir/audio_1.mp3",
             "text": "How to change my password",
             "prediction": "How to change my password",
             "word_error_rate": 0,
             "changes": []
         },
         {
-            "file": "some_dir/audio_2.mp3",
+            "audio": "some_dir/audio_2.mp3",
             "text": "How do I change my password",
             "prediction": "How I change my password",
             "word_error_rate": 0.16666666666666666,
