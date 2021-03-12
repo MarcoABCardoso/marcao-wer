@@ -1,6 +1,6 @@
 {
     "total_words": 32,
-    "word_error_rate": 0.21235119047619047,
+    "word_error_rate": 0.2436011904761905,
     "sentence_error_rate": 0.8,
     "transcriptions": [
         {
@@ -24,10 +24,15 @@
         },
         {
             "audio": "test_audio/audio_3.mp3",
-            "text": "Como trocar senha banco",
+            "text": "Como trocar semeia banco",
             "prediction": "Como trocar senha do banco",
-            "word_error_rate": 0.2,
+            "word_error_rate": 0.4,
             "changes": [
+                {
+                    "type": "substitution",
+                    "phrase": "semeia",
+                    "with": "senha"
+                },
                 {
                     "type": "addition",
                     "phrase": "do"
@@ -90,6 +95,10 @@
             {
                 "phrase": "troco",
                 "count": 2
+            },
+            {
+                "phrase": "semeia",
+                "count": 1
             }
         ],
         "pairwise_phrase_substitutions": [
@@ -97,6 +106,11 @@
                 "phrase": "troco",
                 "with": "trocar",
                 "count": 2
+            },
+            {
+                "phrase": "semeia",
+                "with": "senha",
+                "count": 1
             }
         ]
     }
