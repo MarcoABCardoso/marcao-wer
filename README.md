@@ -38,30 +38,107 @@ let results = await experiment.run()
 
 ```json
 {
-    "total_words": 11,
-    "word_error_rate": 0.90909091,
-    "sentence_error_rate": 0.5,
+    "total_words": 32,
+    "word_error_rate": 0.21235119047619047,
+    "sentence_error_rate": 0.8,
     "transcriptions": [
         {
-            "audio": "some_dir/audio_1.mp3",
-            "text": "How to change my password",
-            "prediction": "How to change my password",
+            "audio": "test_audio/audio_1.mp3",
+            "text": "Como trocar senha do banco",
+            "prediction": "Como trocar senha do banco",
             "word_error_rate": 0,
             "changes": []
         },
         {
-            "audio": "some_dir/audio_2.mp3",
-            "text": "How do I change my password",
-            "prediction": "How I change my password",
+            "audio": "test_audio/audio_2.mp3",
+            "text": "Como trocar a senha do banco",
+            "prediction": "Como trocar senha do banco",
             "word_error_rate": 0.16666666666666666,
             "changes": [
                 {
                     "type": "deletion",
+                    "phrase": "a"
+                }
+            ]
+        },
+        {
+            "audio": "test_audio/audio_3.mp3",
+            "text": "Como trocar senha banco",
+            "prediction": "Como trocar senha do banco",
+            "word_error_rate": 0.2,
+            "changes": [
+                {
+                    "type": "addition",
                     "phrase": "do"
                 }
             ]
+        },
+        {
+            "audio": "test_audio/audio_4.mp3",
+            "text": "Como troco senha do banco",
+            "prediction": "Como trocar senha do banco",
+            "word_error_rate": 0.2,
+            "changes": [
+                {
+                    "type": "substitution",
+                    "phrase": "troco",
+                    "with": "trocar"
+                }
+            ]
+        },
+        {
+            "audio": "test_audio/audio_5.mp3",
+            "text": "Como troco a senha do meu banco",
+            "prediction": "Como trocar senha do banco",
+            "word_error_rate": 0.42857142857142855,
+            "changes": [
+                {
+                    "type": "substitution",
+                    "phrase": "troco",
+                    "with": "trocar"
+                },
+                {
+                    "type": "deletion",
+                    "phrase": "a"
+                },
+                {
+                    "type": "deletion",
+                    "phrase": "meu"
+                }
+            ]
         }
-    ]
+    ],
+    "reports": {
+        "additionDistribution": [
+            {
+                "phrase": "do",
+                "count": 1
+            }
+        ],
+        "deletionDistribution": [
+            {
+                "phrase": "a",
+                "count": 2
+            },
+            {
+                "phrase": "meu",
+                "count": 1
+            }
+        ],
+        "substitutionDistribution": [
+            {
+                "phrase": "troco",
+                "count": 2
+            }
+        ],
+        "pairwise_phrase_substitutions": [
+            {
+                "phrase": "troco",
+                "with": "trocar",
+                "count": 2
+            }
+        ]
+    }
 }
 ```
 Supported change types are currently:

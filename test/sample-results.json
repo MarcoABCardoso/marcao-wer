@@ -1,6 +1,6 @@
 {
-    "total_words": 31,
-    "word_error_rate": 0.18387096774193548,
+    "total_words": 32,
+    "word_error_rate": 0.21235119047619047,
     "sentence_error_rate": 0.8,
     "transcriptions": [
         {
@@ -49,9 +49,9 @@
         },
         {
             "audio": "test_audio/audio_5.mp3",
-            "text": "Como troco a senha do banco",
+            "text": "Como troco a senha do meu banco",
             "prediction": "Como trocar senha do banco",
-            "word_error_rate": 0.3333333333333333,
+            "word_error_rate": 0.42857142857142855,
             "changes": [
                 {
                     "type": "substitution",
@@ -61,8 +61,43 @@
                 {
                     "type": "deletion",
                     "phrase": "a"
+                },
+                {
+                    "type": "deletion",
+                    "phrase": "meu"
                 }
             ]
         }
-    ]
+    ],
+    "reports": {
+        "additionDistribution": [
+            {
+                "phrase": "do",
+                "count": 1
+            }
+        ],
+        "deletionDistribution": [
+            {
+                "phrase": "a",
+                "count": 2
+            },
+            {
+                "phrase": "meu",
+                "count": 1
+            }
+        ],
+        "substitutionDistribution": [
+            {
+                "phrase": "troco",
+                "count": 2
+            }
+        ],
+        "pairwise_phrase_substitutions": [
+            {
+                "phrase": "troco",
+                "with": "trocar",
+                "count": 2
+            }
+        ]
+    }
 }
