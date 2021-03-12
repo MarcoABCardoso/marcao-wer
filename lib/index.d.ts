@@ -33,11 +33,28 @@ interface TranscriptionResult {
     changes: Change[]
 }
 
+interface ErrorDistributionItem {
+    count: number
+    phrase: string
+}
+
+interface PairwiseDistributionItem extends ErrorDistributionItem {
+    with: string
+}
+
+interface ExperimentReports {
+    additionDistribution: ErrorDistributionItem[]
+    deletionDistribution: ErrorDistributionItem[]
+    substitutionDistribution: ErrorDistributionItem[]
+    pairwise_phrase_substitutions: PairwiseDistributionItem[]
+}
+
 interface ExperimentResults {
     total_words: number
     word_error_rate: number
     sentence_error_rate: number
     transcriptions: TranscriptionResult[]
+    reports: ExperimentReports
 }
 
 export = Experiment
