@@ -43,9 +43,9 @@ interface PairwiseDistributionItem extends ErrorDistributionItem {
 }
 
 interface ExperimentReports {
-    additionDistribution: ErrorDistributionItem[]
-    deletionDistribution: ErrorDistributionItem[]
-    substitutionDistribution: ErrorDistributionItem[]
+    addition_distribution: ErrorDistributionItem[]
+    deletion_distribution: ErrorDistributionItem[]
+    substitution_distribution: ErrorDistributionItem[]
     pairwise_phrase_substitutions: PairwiseDistributionItem[]
 }
 

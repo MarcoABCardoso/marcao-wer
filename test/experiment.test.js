@@ -25,7 +25,6 @@ describe('Experiment', () => {
             let experiment = new Experiment(experimentOptions)
             experiment.run()
                 .then(results => {
-                    require('fs').writeFileSync('results.json', JSON.stringify(results, null, 4))
                     expect(results).toEqual(sampleResults)
                     expect(experiment.recognize).toHaveBeenCalledTimes(5)
                     expect(experiment.recognize).toHaveBeenCalledWith('test_audio/audio_1.mp3', 0, ['test_audio/audio_1.mp3', 'test_audio/audio_2.mp3'])

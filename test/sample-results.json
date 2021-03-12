@@ -75,13 +75,13 @@
         }
     ],
     "reports": {
-        "additionDistribution": [
+        "addition_distribution": [
             {
                 "phrase": "do",
                 "count": 1
             }
         ],
-        "deletionDistribution": [
+        "deletion_distribution": [
             {
                 "phrase": "a",
                 "count": 2
@@ -91,7 +91,7 @@
                 "count": 1
             }
         ],
-        "substitutionDistribution": [
+        "substitution_distribution": [
             {
                 "phrase": "troco",
                 "count": 2

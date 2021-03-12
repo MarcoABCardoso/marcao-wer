@@ -40,9 +40,9 @@
         }
     ],
     "reports": {
-        "additionDistribution": [],
-        "deletionDistribution": [],
-        "substitutionDistribution": [],
+        "addition_distribution": [],
+        "deletion_distribution": [],
+        "substitution_distribution": [],
         "pairwise_phrase_substitutions": []
     }
 }
