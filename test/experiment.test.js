@@ -7,7 +7,7 @@ let experimentOptions
 beforeEach(() => {
     experimentOptions = {
         groundTruth: require('./ground-truth.json'),
-        recognize: jest.fn(() => Promise.resolve('Como trocar senha do banco')),
+        recognize: jest.fn(() => Promise.resolve('como trocar senha do banco')),
         batchSize: 2
     }
 })
