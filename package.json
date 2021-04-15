@@ -1,6 +1,6 @@
 {
   "name": "marcao-wer",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "Generic word-error-rate evaluation package",
   "main": "lib/index.js",
   "dependencies": {
