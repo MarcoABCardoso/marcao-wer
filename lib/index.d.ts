@@ -1,6 +1,6 @@
 
 /**
- * @module marcao-wer
+ * @module stt-evaluation
  */
 
  declare class Experiment {

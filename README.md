@@ -1,16 +1,16 @@
-<h1 align="center">marcao-wer</h1>
+<h1 align="center">stt-evaluation</h1>
 <p>
-  <a href="https://www.npmjs.com/package/marcao-wer" target="_blank">
-    <img alt="Version" src="https://img.shields.io/npm/v/marcao-wer.svg">
+  <a href="https://www.npmjs.com/package/stt-evaluation" target="_blank">
+    <img alt="Version" src="https://img.shields.io/npm/v/stt-evaluation.svg">
   </a>
   <a href="#" target="_blank">
     <img alt="License: ISC" src="https://img.shields.io/badge/License-ISC-yellow.svg" />
   </a>
-  <a href='https://coveralls.io/github/MarcoABCardoso/marcao-wer?branch=master'>
-    <img src='https://coveralls.io/repos/github/MarcoABCardoso/marcao-wer/badge.svg?branch=master' alt='Coverage Status' />
+  <a href='https://coveralls.io/github/MarcoABCardoso/stt-evaluation?branch=master'>
+    <img src='https://coveralls.io/repos/github/MarcoABCardoso/stt-evaluation/badge.svg?branch=master' alt='Coverage Status' />
   </a>
   <a href="#" target="_blank">
-    <img alt="Node.js CI" src="https://github.com/MarcoABCardoso/marcao-wer/workflows/Node.js%20CI/badge.svg" />
+    <img alt="Node.js CI" src="https://github.com/MarcoABCardoso/stt-evaluation/workflows/Node.js%20CI/badge.svg" />
   </a>
 </p>
 
@@ -19,13 +19,13 @@
 ## Install
 
 ```sh
-npm install marcao-wer
+npm install stt-evaluation
 ```
 
 ## Usage
 
 ```js
-const Experiment = require('marcao-wer')
+const Experiment = require('stt-evaluation')
 
 const experiment = new Experiment({
     groundTruth: []                             // Array of { audio: "audio_id", transcript: "Text said in this audio" }
